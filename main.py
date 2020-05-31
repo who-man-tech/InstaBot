@@ -7,6 +7,7 @@ def main():
     tags = ["cars", "photo", "bmw", "fitness", "drift", "moto", "training", "food"]
     comments = ["Nice!", "Cool!", "This is unreal!!!"]
 
+
     session = InstaPy(username="+77029317645", password="enes51525354", want_check_browser=False)
     # Запуск без графического интерфейса
     #session = InstaPy(username='test', password='test', headless_browser=True)
@@ -18,10 +19,12 @@ def main():
     # Устанавливаем задержки для действий в секундах
     session.set_action_delays(True, like=3, comment=5, follow=5, unfollow=5, story=10)
     # Отписываемся от людей, которые не подписались на нас
-    session.unfollow_users(amount=50, nonFollowers=True, style="RANDOM", unfollow_after=42*60*60, sleep_delay=655)
+    session.unfollow_users(amount=50, nonFollowers=True, style="RANDOM", unfollow_after=42 * 60 * 60, sleep_delay=655)
     # Устанавливаем ограничение на аккаунты у которых больше 8500 подписчиков
-    session.set_relationship_bounds(enabled=True, max_followers=8500)
+    session.set_relationship_bounds(enabled=True, max_followers=4000)
 
+    # Отписываемся от аккаунтов на которые подписался бот, но они нас не подписались
+    session.unfollow_users(amount=60, instapy_followed_enabled=True, instapy_followed_param="all", style="FIFO", unfollow_after=(60 * 60 * 24), sleep_delay=501)
     # Ставим лайки по хештегам
     session.like_by_tags(tags, amount=2)
     # session.set_dont_like(["naked", "nsfw"])
