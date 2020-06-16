@@ -8,7 +8,7 @@ def main():
     comments = ["Nice!", "Cool!", "This is unreal!!!"]
 
 
-    session = InstaPy(username="_who.man_", password="enes51525354", want_check_browser=False)
+    session = InstaPy(username="_who.man_", password="enes51525354", want_check_browser=False, headless_browser=True)
     # Запуск без графического интерфейса
     # session = InstaPy(username='test', password='test', headless_browser=True)
 
@@ -31,9 +31,7 @@ def main():
     session.unfollow_users(amount=60, instapy_followed_enabled=True, instapy_followed_param="all", style="FIFO", unfollow_after=(60 * 60 * 24), sleep_delay=501)
     # Ставим лайки по хештегам
     session.like_by_tags(tags, amount=2)
-    # session.set_dont_like(["naked", "nsfw"])
-
-    
+    # session.set_dont_like(["naked", "nsfw"])    
 
     session.end()
 
