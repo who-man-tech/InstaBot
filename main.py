@@ -8,7 +8,7 @@ def main():
     comments = ["Nice!", "Cool!", "This is unreal!!!"]
 
 
-    session = InstaPy(username="_who.man_", password="enes51525354", want_check_browser=False, headless_browser=True)
+    session = InstaPy(username="_who.man_", password="enes51525354",  headless_browser=True, want_check_browser=False)
     # Запуск без графического интерфейса
     # session = InstaPy(username='test', password='test', headless_browser=True)
 
